@@ -212,7 +212,7 @@ struct IntUtil {
     if (IntTraits<T>::kIsSigned)
       return sizeof(T) <= sizeof(int32_t) ? true : x >= T(-2147483647) - 1 && x <= T(2147483647);
     else
-      return x >= T(0) && (sizeof(T) <= sizeof(int32_t) ? true : x <= T(2147483647));
+      return sizeof(T) <= sizeof(int32_t) ? true : x <= T(2147483647);
   }
 
   //! Get whether the given integer `x` can be casted to 32-bit unsigned integer.
